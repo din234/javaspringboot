@@ -39,10 +39,6 @@ public class TestController {
     }
 
 
-    @RestController
-    class dbElastic {
-
-    }
 
     @GetMapping({"/db"})
     public List<String> elastic() {
@@ -56,6 +52,3 @@ public class TestController {
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 }
-
-
-class

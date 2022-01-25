@@ -66,4 +66,28 @@
         </dependency>
 
     </dependencies>
+
+    <!-- RUN: mvn clean package spring-boot:repackage -->
+    <build>
+        <plugins>
+
+            <!-- https://stackoverflow.com/questions/38792031/springboot-making-jar-files-no-auto-configuration-classes-found-in-meta-inf -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <maiClass>com.spring.SpringBootIndex</maiClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
