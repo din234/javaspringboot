@@ -1,6 +1,6 @@
 package com.spring.config;
 
-import com.spring.model.User;
+import com.spring.model.jwt.User;
 import org.elasticsearch.common.UUIDs;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.elasticsearch.core.event.BeforeConvertCallback;

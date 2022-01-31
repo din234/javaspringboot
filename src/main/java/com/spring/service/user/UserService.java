@@ -1,6 +1,6 @@
 package com.spring.service.user;
 
-import com.spring.model.User;
+import com.spring.model.jwt.User;
 import com.spring.respositories.UserRepository;
 import com.spring.util.Gender;
 import com.spring.model.Students;

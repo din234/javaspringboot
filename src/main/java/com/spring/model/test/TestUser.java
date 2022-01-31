@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
+
 public class TestUser {
     @Id
     private String id;
@@ -12,7 +13,10 @@ public class TestUser {
     private String email;
     private LocalDate dateCreated;
 
-    // public Account(){}
+
+    public TestUser(){
+        this.dateCreated = LocalDate.now();
+    }
     public TestUser(
             String id,
             String name,
