@@ -1,4 +1,4 @@
-package com.spring.respositories;
+package com.spring.repositories;
 
 public interface StudentRepository {
 }

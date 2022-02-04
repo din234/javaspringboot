@@ -2,46 +2,68 @@ package com.spring.model.jwt;
 
 import com.spring.util.Role;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.time.LocalDate;
 
+@Document(indexName = "users")
 public class User {
     @Id
     private String id;
-    private String name;
-    private String email;
-    private Role role;
-    private LocalDate dateCreated;
 
-    // public Account(){}
+    @Field(type = FieldType.Text, name = "username")
+    private String username;
+
+//    @Field(type = FieldType.Text, name = "name")
+//    private String name;
+
+    @Field(type = FieldType.Text, name = "email")
+    private String email;
+
+    @Field(type = FieldType.Text, name = "password")
+    private String password;
+
+//    @Field(type = FieldType.Text, name = "role")
+//    private Role role;
+
+//    @Field(type = FieldType.Text, name = "dateCreated")
+//    private LocalDate dateCreated;
+
+    public User(){
+//        this.dateCreated = LocalDate.now();
+    };
+
     public User(
             String id,
-            String name,
+            String username,
             String email,
-            Role role) {
+            String password) {
         this.id = id;
-        this.name = name;
+        this.username = username;
+        this.password = password;
         this.email = email;
-        this.role = role;
-        this.dateCreated = LocalDate.now();
+//        this.role = role;
+//        this.dateCreated = LocalDate.now();
     }
-    public User(
-            String name,
-            String email,
-            Role role) {
-        this.name = name;
-        this.email = email;
-        this.role = role;
-        this.dateCreated = LocalDate.now();
-    }
-    public User(
-            String name,
-            String email) {
-        this.name = name;
-        this.email = email;
-        this.role = Role.GUEST;
-        this.dateCreated = LocalDate.now();
-    }
+//    public User(
+//            String name,
+//            String email,
+//            Role role) {
+//        this.name = name;
+//        this.email = email;
+//        this.role = role;
+////        this.dateCreated = LocalDate.now();
+//    }
+//    public User(
+//            String name,
+//            String email) {
+//        this.name = name;
+//        this.email = email;
+//        this.role = Role.GUEST;
+////        this.dateCreated = LocalDate.now();
+//    }
 
     /*
      * Getter and setter down here
@@ -57,12 +79,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -73,30 +95,21 @@ public class User {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public LocalDate getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(LocalDate dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", role=" + role +
-                ", dateCreated=" + dateCreated +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

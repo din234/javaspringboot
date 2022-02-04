@@ -1,4 +1,4 @@
-package com.spring.config;
+package com.spring.config.elasticsearch;
 
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Configuration;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder.HttpClientConfigCallback;
+import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 
 /**
@@ -24,7 +26,8 @@ import org.elasticsearch.client.RestClientBuilder.HttpClientConfigCallback;
  * https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#elasticsearch.clients.transport
  */
 @Configuration
-public class RestTransportClientConfig {
+@EnableElasticsearchRepositories(basePackages = "com.spring.repositories")
+public class RestTransportClientConfig extends AbstractElasticsearchConfiguration {
 
     @Value("${elasticsearch.host}")
     private String esHost;
@@ -38,6 +41,7 @@ public class RestTransportClientConfig {
     @Value("${elasticsearch.password}")
     private String esPassword;
 
+    @Override
     @Bean
     public RestHighLevelClient elasticsearchClient() {
         final CredentialsProvider creProvider = new BasicCredentialsProvider();
@@ -53,5 +57,17 @@ public class RestTransportClientConfig {
                 });
         return new RestHighLevelClient(clientBuilder);
     };
+
+
+//    // Overide template
+//    @Bean(
+//            name = {"elasticsearchOperations", "elasticsearchTemplate"}
+//    )
+//    @Override
+//    public ElasticsearchOperations elasticsearchOperations(ElasticsearchConverter elasticsearchConverter, RestHighLevelClient elasticsearchClient) {
+//        ElasticsearchRestTemplate template = new ElasticsearchRestTemplate(elasticsearchClient, elasticsearchConverter);
+//        template.setRefreshPolicy(this.refreshPolicy());
+//        return template;
+//    }
 
 }
