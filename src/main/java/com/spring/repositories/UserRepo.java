@@ -1,6 +1,6 @@
 package com.spring.repositories;
 
-import com.spring.model.jwt.User;
+import com.spring.model.user.User;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

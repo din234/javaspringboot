@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
@@ -24,18 +23,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
 
-    @Autowired
     private AuthenticationEntryPointImpl authenticationEntryPoint;
-    @Autowired
-    private JwtRequestFilter jwtRequestFilter;
-    @Autowired
-    private UserDetailServiceImpl userDetailServiceImp;
+    private UserDetailServiceImpl userDetailServiceImpl;
+    private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    public WebSecurityConfig(
+            AuthenticationEntryPointImpl authenticationEntryPoint,
+            UserDetailServiceImpl userDetailServiceImpl,
+            PasswordEncoder passwordEncoder) {
+        this.authenticationEntryPoint = authenticationEntryPoint;
+        this.userDetailServiceImpl = userDetailServiceImpl;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder authManBuilder) throws Exception{
-
-        authManBuilder.userDetailsService(userDetailServiceImp).passwordEncoder(passwordEncoder());
+        authManBuilder.userDetailsService(userDetailServiceImpl).passwordEncoder(passwordEncoder);
     }
 
     @Override
@@ -45,48 +49,38 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.httpBasic().disable();
-
+//        http.httpBasic().disable();
 //        http.authorizeRequests((requests) -> {
 //            ((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();
 //        });
-
 //        http.formLogin();
-
-
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/auth").permitAll()
-                .antMatchers("/add").permitAll()        // FOR TESTING
-                .anyRequest().authenticated()
+//                .antMatchers("/auth").permitAll()
+//                .antMatchers("/add").permitAll()        // FOR TESTING
+                .anyRequest().permitAll()
                 .and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //
-//        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(new JwtRequestAuthenticationFilter(),UsernamePasswordAuthenticationFilter.class);
+//            http.addFilter(new JwtRequestAuthenticationFilter(authenticationManagerBean()));
 
 
 //        super.configure(http);
     }
-//
-//
-//
-//
-//
+
+
+
 //    // TESTING
 //    private void logSettings(HttpSecurity http){
 //        String log = http.toString();
 //        logger.info("SECURITY CONFIG: " + http);
 //    }
 
-    @Bean
-    public PasswordEncoder passwordEncoder (){
-        return new BCryptPasswordEncoder();
-    }
 
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        logger.error("STUCK HERE");
+//        logger.error("STUCK HERE");
         return super.authenticationManagerBean();
     }
 }
