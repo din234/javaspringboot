@@ -1,7 +1,7 @@
 package com.spring.service.user;
 
 import com.spring.repositories.UserRepo;
-import com.spring.util.Gender;
+import com.spring.model.test.Gender;
 import com.spring.model.Students;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

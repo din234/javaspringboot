@@ -20,13 +20,13 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-//@RequestMapping(path = "/user")
+@RequestMapping(path = "/user")
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    private AuthenticationManager authenticationManager;
-    private JwtTokenUtil jwtTokenUtil;
-    private UserDetailServiceImpl userDetailServiceImpl;
+    private final AuthenticationManager authenticationManager;
+    private final JwtTokenUtil jwtTokenUtil;
+    private final UserDetailServiceImpl userDetailServiceImpl;
 
     @Autowired
     public UserController (
@@ -37,19 +37,7 @@ public class UserController {
         this.jwtTokenUtil = jwtTokenUtil;
         this.userDetailServiceImpl = userDetailServiceImpl;
     }
-//    private void test(Students.LoginRequest loginRequest){
-//        try {
-//            logger.info("test");
-//            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-//                    loginRequest.getUsername(),
-//                    loginRequest.getPassword()
-//            );
-//            authenticationManager.authenticate(authToken);
-//        } catch (Exception e){
-//            logger.error("ERROR");
-//            throw e;
-//        }
-//    }
+
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     public ResponseEntity<JwtResponse> authenticateUser(@RequestBody User user) {
@@ -61,36 +49,23 @@ public class UserController {
         // Return jwt token
         final String token = jwtTokenUtil.generateToken((UserDetails) authentication.getPrincipal());
         return new ResponseEntity(new JwtResponse(token),HttpStatus.OK);
-//        return new ResponseEntity("",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity getUsers(@RequestBody @Valid User user) throws Exception {
-        logger.info("New user added!");
-        userDetailServiceImpl.saveUser(user);
-        return new ResponseEntity(user,HttpStatus.CREATED);
+    public ResponseEntity reigisterUser(@RequestBody @Valid User user) throws Exception {
+        logger.info(user.toString());
+        if (userDetailServiceImpl.saveUser(user) != null){
+            logger.info("New user added!");
+            return new ResponseEntity(user,HttpStatus.CREATED);
+        }
+        return new ResponseEntity(null, HttpStatus.BAD_REQUEST);
     }
-
-//    @RequestMapping(value = "/username", method = RequestMethod.POST)
-//    @ResponseBody
-//    public ResponseEntity getUsername(){
-//        return new ResponseEntity(userDetailServiceImp.findUsername("A"),HttpStatus.OK);
-//    }
 
     @RequestMapping(value = "findAll")
-    public ResponseEntity<?> findAll() throws Exception{
+    public ResponseEntity<?> findAll() {
         List<User> users = userDetailServiceImpl.findAllUser();
         return new ResponseEntity(users,HttpStatus.OK);
-    }
-
-
-
-    // TESTING
-    @PostMapping("/post")
-    public ResponseEntity postUser(@RequestBody User user) throws Exception{
-        logger.info("User post triggered");
-        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
 }

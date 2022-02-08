@@ -1,23 +1,31 @@
 package com.spring.config.elasticsearch;
 
 import com.spring.model.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.event.BeforeConvertCallback;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @Component
 public class CallbackBeforeConfig implements BeforeConvertCallback<User> {
 
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public CallbackBeforeConfig(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Override
     public User onBeforeConvert(User entity, IndexCoordinates index) {
-        if (entity.getId() == null){
-            // Dùng setter trong user model
-//             entity.setId(UUIDs.randomBase64UUID());
-//            entity.setId("WAA");
-        }
-//        if (entity.getUsername() == null){
-//            entity.setUsername("");
-//        }
+        String password = entity.getPassword();
+        entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return entity;
     }
+
+
+
+//    private MethodArgumentNotValidException
 }

@@ -1,45 +1,40 @@
 package com.spring.model.user;
 
-import com.spring.util.Role;
 import org.elasticsearch.index.query.RankFeatureQueryBuilder;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.time.LocalDate;
+import java.util.List;
+
 
 //@Document(indexName = "users")
 public class User extends LoginForm {
-//    @Field(type = FieldType.Text, name = "name")
-//    private String name;
+    @Field(name = "full_name")
+    private String fullName;
 
-    @Field(type = FieldType.Text, name = "email")
+    @Field(name = "email")
     private String email;
 
-
+    private List<AuthorityTag> roles;
+//    private boolean tokenExpired;
 //    @Field(type = FieldType.Text, name = "role")
 //    private Role role;
 
-
-    public User(){
-//        this.dateCreated = LocalDate.now();
-    };
-
-    public User(
-            String username,
-            String email,
-            String password) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
 
     /*
      * Getter and setter down here
      * Api sẽ tự độc chạy cá dòng lệnh ở dưới
      * Qua annotation
      * */
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -54,7 +49,10 @@ public class User extends LoginForm {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", dateCreated=" + dateCreated +
+                ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 }

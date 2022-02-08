@@ -2,9 +2,9 @@ package com.spring.service.user;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.config.CustomException.InvalidPasswordException;
 import com.spring.model.user.User;
 import com.spring.repositories.UserRepo;
-import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 //import org.springframework.security.core.userdetails.User; // FOR TESTING
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,18 +31,15 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
 
     //    // For Advanced elasticsearch operation using HighLevelRESTapi
     private final UserRepo userRepo;
-    private final PasswordEncoder passwordEncoder;
 //    private final RestHighLevelClient restHighLevelClient;
     private final ObjectMapper objectMapper;
 
     @Autowired
     public UserDetailServiceImpl(
             UserRepo userRepo,
-            PasswordEncoder passwordEncoder,
 //            RestHighLevelClient restHighLevelClient,
             ObjectMapper objectMapper){
         this.userRepo = userRepo;
-        this.passwordEncoder = passwordEncoder;
 //        this.restHighLevelClient = restHighLevelClient;
         this.objectMapper = objectMapper;
     }
@@ -58,28 +56,31 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
         );
     }
 
-    private Map<String,Object> convertObjectToMap(){
-
+    private void httpOutputStream(HttpURLConnection http, byte[] out, int length) throws IOException{
+        http.setFixedLengthStreamingMode(length);
+        http.connect();
+        OutputStream os = http.getOutputStream();
+        os.write(out);
     }
-    @Override
-    public void firstTimeInsert() {
-
-    }
-
 
     @Override
-    public User saveUser(User user) {
+    public User saveUser(User user) throws Exception{
+        String password = user.getPassword();
+
+        // Validate bằng phương pháp thủ công
+        if (password.isEmpty() || password.length() < 6){
+            throw new InvalidPasswordException(password.length());
+        }
         List<User> users = userRepo.findByUsername(user.getUsername());
         if (users.isEmpty()){
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
             return userRepo.save(user);
         }
-        logger.info("Username already exist");
+        logger.info("Username already exist!");
         return null;
     }
 
     @Override
-    public User saveOrGenerateUser(User user) {
+    public User saveOrGenerateUser(User user) throws Exception {
         if (this.saveUser(user) != null){
             return user;
         }
@@ -101,12 +102,6 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
         userRepo.delete(delUser);
         return true;
     }
-
-
-
-
-
-
 
     @Override
     public List<User> findUsername(String username) {

@@ -6,10 +6,9 @@ import java.util.List;
 
 public interface UserService {
     // Setter
-    User saveUser(User user);
-    User saveOrGenerateUser(User user);
+    User saveUser(User user) throws Exception;
+    User saveOrGenerateUser(User user) throws Exception;
     Boolean deleteUserById(String id);
-    void firstTimeInsert();
 
     // Getter
     List<User> findUsername(String username);
