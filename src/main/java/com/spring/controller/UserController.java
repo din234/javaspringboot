@@ -4,7 +4,6 @@ import com.spring.config.jwt.JwtTokenUtil;
 import com.spring.model.user.Login;
 import com.spring.model.user.User;
 import com.spring.model.user.JwtResponse;
-//import com.spring.service.test.CacheService;
 import com.spring.service.user.UserDetailServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,6 +79,7 @@ public class UserController {
         return new ResponseEntity(users,HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('STAFF')")
     @RequestMapping(value = "findAll", method = RequestMethod.GET)
     public ResponseEntity<?> findAll() {
         List<User> users = userDetailServiceImpl.findAllUser();

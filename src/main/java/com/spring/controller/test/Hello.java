@@ -18,7 +18,7 @@ public class Hello {
     // Embedded HTML
     @GetMapping({"/html"})
     public String temp() {
-        return "aaaaaa<h3>INDEX</h3>".substring(4);
+        return "<h3>INDEX</h3>";
     }
 
     @GetMapping({"/json"})
