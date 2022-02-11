@@ -6,7 +6,6 @@ import org.springframework.data.elasticsearch.core.event.BeforeConvertCallback;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @Component
 public class CallbackBeforeConfig implements BeforeConvertCallback<User> {
@@ -24,8 +23,4 @@ public class CallbackBeforeConfig implements BeforeConvertCallback<User> {
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return entity;
     }
-
-
-
-//    private MethodArgumentNotValidException
 }

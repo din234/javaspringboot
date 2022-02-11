@@ -1,6 +1,8 @@
 package com.spring.controller;
 
 import com.spring.config.CustomException.InvalidPasswordException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -13,6 +15,8 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {
+    Logger logger = LoggerFactory.getLogger(ExceptionHandlerController.class);
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String,Object> handleValidationException(MethodArgumentNotValidException ex){
@@ -28,12 +32,13 @@ public class ExceptionHandlerController {
     }
 
     // Password validation bằng phương pháp thủ công
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(InvalidPasswordException.class)
     public Map<String,Object> passwordExceptionHandler(InvalidPasswordException ex){
         Map<String,Object> errors = new HashMap<>();
-        return new HashMap<>();
+        errors.put("error_message: ", ex.getMessage());
+        return errors;
     }
-
 
 //    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 //    @ExceptionHandler(IncorrectFileExtensionException.class)

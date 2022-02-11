@@ -26,6 +26,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
  * https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#elasticsearch.clients.transport
  */
 @Configuration
+//@EnableJpaRepositories
 @EnableElasticsearchRepositories(basePackages = "com.spring.repositories")
 public class RestTransportClientConfig extends AbstractElasticsearchConfiguration {
 

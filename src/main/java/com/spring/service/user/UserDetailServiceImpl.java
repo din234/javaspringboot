@@ -3,8 +3,9 @@ package com.spring.service.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.config.CustomException.InvalidPasswordException;
+import com.spring.model.user.Group;
 import com.spring.model.user.User;
-import com.spring.repositories.UserRepo;
+import com.spring.repositories.elastic.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +15,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service @Transactional
 public class UserDetailServiceImpl implements UserService,UserDetailsService {
@@ -45,17 +52,24 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     }
 
     @Override
+//    @Caching(
+//            cacheable = @Cacheable (value = "user")
+//    )
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = this.findUsername(username).get(0);
-        // Add them role cho tung user
-//        Collection<SimpleGrantedAuthority>(new SimpleGrantedAuthority(
-//
-//        ));
+        List<User> users = this.findUsername(username);
+        if (users.isEmpty()){
+            return null;
+        }
+
+        User user = users.get(0);
+//        Collection<SimpleGrantedAuthority> authorities = Arrays.stream(Group.values()).map(group -> new SimpleGrantedAuthority(group.toString())).collect(Collectors.toList());
+        Collection<SimpleGrantedAuthority> authorities = user.getGroups().stream().map(
+                group -> new SimpleGrantedAuthority(group)).collect(Collectors.toList());
+
         return new org.springframework.security.core.userdetails.User(
-                user.getUsername(), user.getPassword(),new ArrayList<>()
+                user.getUsername(), user.getPassword(),authorities
         );
     }
-
     private void httpOutputStream(HttpURLConnection http, byte[] out, int length) throws IOException{
         http.setFixedLengthStreamingMode(length);
         http.connect();
@@ -64,22 +78,37 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     }
 
     @Override
+//    @Caching(
+//            cacheable =  @Cacheable (value = "user")
+//    )
     public User saveUser(User user) throws Exception{
-        String password = user.getPassword();
-
         // Validate bằng phương pháp thủ công
-        if (password.isEmpty() || password.length() < 6){
+        String password = user.getPassword();
+        if (password.length() < 6){
+            logger.info("TEST");
             throw new InvalidPasswordException(password.length());
         }
         List<User> users = userRepo.findByUsername(user.getUsername());
         if (users.isEmpty()){
+            List<String> groups = new ArrayList<>();
+//            groups.add(Group.USER.toString());
+//            user.setGroups(groups);
+            user.setDateCreated(new Date(System.currentTimeMillis()));
             return userRepo.save(user);
         }
         logger.info("Username already exist!");
         return null;
     }
 
+//    @Override
+//    public void addRole() {
+//
+//    }
+
     @Override
+//    @Caching(
+//            cacheable = @Cacheable(value = "user")
+//    )
     public User saveOrGenerateUser(User user) throws Exception {
         if (this.saveUser(user) != null){
             return user;
@@ -94,6 +123,7 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     }
 
     @Override
+//    @CacheEvict(value="user")
     public Boolean deleteUserById(String id) {
         User delUser = this.findUserById(id);
         if (delUser == null){
@@ -104,8 +134,8 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     }
 
     @Override
+//    @Cacheable
     public List<User> findUsername(String username) {
-//        List<User> users = new ArrayList<>();
         return userRepo.findByUsername(username);
     }
 
@@ -125,5 +155,8 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
         return users;
     }
 
-
+    @Override
+    public List<User> searchUser(String keyword){
+        return userRepo.findByUsernameLike(keyword);
+    }
 }

@@ -6,34 +6,43 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+//import org.springframework.security.access.expression.method.MethodSecurityExpressionRoot;
 
 // https://stackoverflow.com/questions/48628389/how-to-configure-httpsecurity-for-this-situation-spring-boot
 
 @Configuration
-@EnableWebSecurity(debug = true)
+//@EnableWebSecurity(debug = true)
+@EnableWebSecurity()
+@EnableGlobalMethodSecurity(prePostEnabled = true) // Kích hoạt @PreAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     private AuthenticationEntryPointImpl authenticationEntryPoint;
     private UserDetailServiceImpl userDetailServiceImpl;
+    private JwtRequestAuthenticationFilter jwtRequestAuthenticationFilter;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     public WebSecurityConfig(
             AuthenticationEntryPointImpl authenticationEntryPoint,
             UserDetailServiceImpl userDetailServiceImpl,
+            JwtRequestAuthenticationFilter jwtRequestAuthenticationFilter,
             PasswordEncoder passwordEncoder) {
         this.authenticationEntryPoint = authenticationEntryPoint;
         this.userDetailServiceImpl = userDetailServiceImpl;
+        this.jwtRequestAuthenticationFilter = jwtRequestAuthenticationFilter;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -49,19 +58,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.httpBasic().disable();
-//        http.authorizeRequests((requests) -> {
-//            ((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();
-//        });
-//        http.formLogin();
         http.csrf().disable().authorizeRequests()
-//                .antMatchers("/auth").permitAll()
-//                .antMatchers("/add").permitAll()        // FOR TESTING
-                .anyRequest().permitAll()
+                .antMatchers(HttpMethod.POST,"/user/register","/user/auth","/server/*").permitAll()
+                .antMatchers("/server/*").hasIpAddress("127.0.0.1")
+                .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //
-//        http.addFilterBefore(new JwtRequestAuthenticationFilter(),UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtRequestAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 //            http.addFilter(new JwtRequestAuthenticationFilter(authenticationManagerBean()));
 
 
@@ -80,7 +84,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-//        logger.error("STUCK HERE");
         return super.authenticationManagerBean();
     }
 }
