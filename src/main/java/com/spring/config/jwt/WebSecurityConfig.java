@@ -23,8 +23,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 // https://stackoverflow.com/questions/48628389/how-to-configure-httpsecurity-for-this-situation-spring-boot
 
 @Configuration
-@EnableWebSecurity(debug = true)
-//@EnableWebSecurity()
+//@EnableWebSecurity(debug = true)
+@EnableWebSecurity()
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) // Kích hoạt @PreAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
@@ -64,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger/**","/swagger/api-docs","/swagger/swagger-ui.html/**").permitAll()
 
                 .antMatchers("/server/import").access("hasIpAddress('127.0.0.1')")
-                .antMatchers("/server/add").access("hasIpAddress('127.0.0.1')")
+                .antMatchers("/server/add/**").access("hasIpAddress('127.0.0.1')")
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -1,9 +1,12 @@
 package com.spring.service.localProvider;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.spring.model.excel.AuthoritySheet;
+import com.spring.model.excel.RecordTemplate;
+import com.spring.model.jpa.Authority;
+import com.spring.repositories.jpa.AuthorityRepoSql;
 import com.spring.util.ExcelUtil;
-import com.spring.util.model.UserSheet;
+import com.spring.model.excel.UserSheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -14,31 +17,57 @@ import java.util.List;
 
 @Service
 public class LocalProviderService {
-
-
-    @Autowired
-    private ExcelUtil readExcelFile;
-
     @Value("${server.url}")
     private String URL;
     @Value("${server.port}")
     private String PORT;
     @Value("${excel.run}")
     private Boolean runExcel;
+    @Value("${excel.dir}")
+    private String dirPath;
 
+    private final ObjectWriter ow;
+    private final RestTemplate restTemplate;
+    private final HttpHeaders header;
+
+    private final ExcelUtil excelUtil;
+    private final AuthorityRepoSql authorityRepoSql;
+    private final AuthoritySheet authoritySheet;
+    private final UserSheet userSheet;
+
+    @Autowired
+    public LocalProviderService(
+            ObjectWriter ow,
+            RestTemplate restTemplate,
+            HttpHeaders header,
+
+            ExcelUtil excelUtil,
+            AuthorityRepoSql authorityRepoSql,
+            AuthoritySheet authoritySheet,
+            UserSheet usersheet
+    ){
+        this.ow = ow;
+        this.restTemplate = restTemplate;
+        this.header = header;
+
+        this.excelUtil = excelUtil;
+        this.authorityRepoSql = authorityRepoSql;
+        this.authoritySheet = authoritySheet;
+        this.userSheet = usersheet;
+    }
 
     public ResponseEntity run() throws Exception {
-        final String addUserUrl = URL+":"+PORT+"/server/add";
+        set(authoritySheet, "authority",dirPath+"Authorities.xlsx");
+        set(userSheet, "user",dirPath+"Users.xlsx");
 
-        final List<Object> users = readExcelFile.readExcel(new UserSheet());
+        return new ResponseEntity("Data added!", HttpStatus.OK);
+    }
 
-        ObjectWriter ow = new ObjectMapper().writer();
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders header = new HttpHeaders();
-        header.setContentType(MediaType.APPLICATION_JSON);
+    private void set(RecordTemplate recordTemplate, String endPoint, String filePath) throws Exception {
+        final String addUserUrl = URL+":"+PORT+"/server/add/"+endPoint;
+        final List<Object> users = excelUtil.readExcel(recordTemplate,filePath);
 
         for (Object user : users) {
-
             String json = ow.writeValueAsString(user);
             try {
                 HttpEntity<String> request = new HttpEntity<>(json, header);
@@ -49,6 +78,9 @@ public class LocalProviderService {
 //                    e.printStackTrace();
             }
         }
-        return new ResponseEntity("Data added!", HttpStatus.OK);
+    }
+
+    public ResponseEntity addAuthority(Authority authority){
+        return new ResponseEntity(authorityRepoSql.save(authority),HttpStatus.OK);
     }
 }

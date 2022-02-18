@@ -3,7 +3,9 @@ package com.spring.controller;
 import com.spring.config.CustomException.InvalidPasswordException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.mail.MailException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,6 +33,13 @@ public class ExceptionHandlerController {
         return errors;
     }
 
+    @ExceptionHandler(MailException.class)
+    public Map<String,Object> emailExceptionHandler(MailException ex){
+        Map<String,Object> errors = new HashMap<>();
+        errors.put("error_message: ", ex.getMessage());
+        return errors;
+    }
+
     // Password validation bằng phương pháp thủ công
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(InvalidPasswordException.class)
@@ -40,6 +49,13 @@ public class ExceptionHandlerController {
         return errors;
     }
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public Map<String,Object> dataIntergrityViolationHandler(){
+        Map<String,Object> errors = new HashMap<>();
+        errors.put("error: ", "triggered");
+        return errors;
+    }
 //    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 //    @ExceptionHandler(IncorrectFileExtensionException.class)
 //    public Map<String,Object> fileExtensionExceptionHandler(IncorrectFileExtensionException ex){

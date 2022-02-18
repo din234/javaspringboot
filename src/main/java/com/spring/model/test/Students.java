@@ -1,6 +1,6 @@
 package com.spring.model.test;
 
-import com.spring.model.test.Gender;
+import com.spring.model.test.constant.Gender;
 
 import java.time.LocalDate;
 
