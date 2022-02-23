@@ -46,7 +46,7 @@ public class TestController {
         return new ResponseEntity(response,HttpStatus.OK);
     }
 
-    @PostMapping("/Async")
+    @PostMapping("/async")
     public void asyncTest(){
         testService.asyncService();
         logger.info("Goi sau");
