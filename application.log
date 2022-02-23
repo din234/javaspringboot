@@ -36967,3 +36967,204 @@ Caused by: java.lang.InterruptedException: null
 	... 43 common frames omitted
 
 2022-02-23 08:02:32.067  INFO 22396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 08:31:34.034  INFO 14288 --- [main] com.spring.SpringBootIndex               : Starting SpringBootIndex using Java 17.0.1 on SnapLap with PID 14288 (D:\trainingdev_dinh\src\java\main-modules\target\classes started by Dim in D:\trainingdev_dinh\src\java)
+2022-02-23 08:31:34.041  INFO 14288 --- [main] com.spring.SpringBootIndex               : No active profile set, falling back to default profiles: default
+2022-02-23 08:31:34.729  WARN 14288 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.spring.SpringBootIndex]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'testService' for bean class [com.spring.service.test.TestService] conflicts with existing, non-compatible bean definition of same name and class [com.spring.service.TestService]
+2022-02-23 08:31:35.159 ERROR 14288 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.spring.SpringBootIndex]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'testService' for bean class [com.spring.service.test.TestService] conflicts with existing, non-compatible bean definition of same name and class [com.spring.service.TestService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.6.3.jar:2.6.3]
+	at com.spring.SpringBootIndex.main(SpringBootIndex.java:25) ~[classes/:na]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'testService' for bean class [com.spring.service.test.TestService] conflicts with existing, non-compatible bean definition of same name and class [com.spring.service.TestService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175) ~[spring-context-5.3.15.jar:5.3.15]
+	... 13 common frames omitted
+
+2022-02-23 08:32:49.331  INFO 25496 --- [main] com.spring.SpringBootIndex               : Starting SpringBootIndex using Java 17.0.1 on SnapLap with PID 25496 (D:\trainingdev_dinh\src\java\main-modules\target\classes started by Dim in D:\trainingdev_dinh\src\java)
+2022-02-23 08:32:49.336  INFO 25496 --- [main] com.spring.SpringBootIndex               : No active profile set, falling back to default profiles: default
+2022-02-23 08:32:50.920  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 08:32:50.922  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-02-23 08:32:51.062  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131 ms. Found 3 Elasticsearch repository interfaces.
+2022-02-23 08:32:51.081  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 08:32:51.082  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 08:32:51.140  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2022-02-23 08:32:51.678  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 08:32:51.679  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-02-23 08:32:51.740  INFO 25496 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.AuthorityRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 08:32:51.742  INFO 25496 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CountryRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 08:32:51.743  INFO 25496 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CourseRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 08:32:51.743  INFO 25496 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.RegionRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 08:32:51.747  INFO 25496 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.UserRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 08:32:51.748  INFO 25496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-02-23 08:32:53.527  INFO 25496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-23 08:32:53.550  INFO 25496 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 08:32:53.555  INFO 25496 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 08:32:53.855  INFO 25496 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 08:32:53.855  INFO 25496 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4385 ms
+2022-02-23 08:32:56.203  WARN 25496 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 08:32:56.590  INFO 25496 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 08:32:56.729  INFO 25496 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 08:32:57.153  INFO 25496 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 08:32:57.374  INFO 25496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 08:32:58.060  INFO 25496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 08:32:58.130  INFO 25496 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-23 08:33:00.490  INFO 25496 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 08:33:00.513  INFO 25496 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 08:33:01.456  WARN 25496 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 08:33:02.022  WARN 25496 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/location?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 08:33:02.678  WARN 25496 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 08:33:02.909  INFO 25496 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a4c1a6c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f9a5d3b, org.springframework.security.web.header.HeaderWriterFilter@15f3f9cf, org.springframework.security.web.authentication.logout.LogoutFilter@10cf3e4f, com.spring.config.security.JwtRequestAuthenticationFilter@6e7d9d0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56adb75e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ea91c39, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@123a21ad, org.springframework.security.web.session.SessionManagementFilter@2726b2f3, org.springframework.security.web.access.ExceptionTranslationFilter@36109a76, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@592fbd8]
+2022-02-23 08:33:02.917  WARN 25496 --- [main] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2022-02-23 08:33:07.154  INFO 25496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-23 08:33:07.174  INFO 25496 --- [main] com.spring.SpringBootIndex               : Started SpringBootIndex in 18.757 seconds (JVM running for 20.004)
+2022-02-23 08:33:24.270  INFO 25496 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-23 08:33:24.270  INFO 25496 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-23 08:33:24.272  INFO 25496 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-02-23 08:33:24.286  INFO 25496 --- [http-nio-8081-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/test/async':
+
+org.apache.catalina.connector.RequestFacade@1a0b2f3
+
+servletPath:/test/async
+pathInfo:null
+headers: 
+authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdG9vbmlhY2l0aGx5IiwiZXhwIjoxNjQ1NjQyNjMwLCJpYXQiOjE2NDU1NTYyMzB9.CoS-K9Sq_crh7VWwfK0wjr3Fpb0ZPDFO2AnM_1g3xwl45Z6HYVp0rWZAxvJnPBZVZcC0EwMsKx66uNW78y0dzQ
+user-agent: PostmanRuntime/7.29.0
+accept: */*
+postman-token: 49d983ce-928d-4ad6-ae7e-908997f3171e
+host: 0.0.0.0:8081
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 08:33:24.651 ERROR 25496 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 08:33:24.690  WARN 25496 --- [http-nio-8081-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-02-23 08:33:24.697  INFO 25496 --- [http-nio-8081-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@72b01bd3
+
+servletPath:/error
+pathInfo:null
+headers: 
+authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdG9vbmlhY2l0aGx5IiwiZXhwIjoxNjQ1NjQyNjMwLCJpYXQiOjE2NDU1NTYyMzB9.CoS-K9Sq_crh7VWwfK0wjr3Fpb0ZPDFO2AnM_1g3xwl45Z6HYVp0rWZAxvJnPBZVZcC0EwMsKx66uNW78y0dzQ
+user-agent: PostmanRuntime/7.29.0
+accept: */*
+postman-token: 49d983ce-928d-4ad6-ae7e-908997f3171e
+host: 0.0.0.0:8081
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 08:33:30.727  INFO 25496 --- [http-nio-8081-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/test/async':
+
+org.apache.catalina.connector.RequestFacade@1a0b2f3
+
+servletPath:/test/async
+pathInfo:null
+headers: 
+authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdG9vbmlhY2l0aGx5IiwiZXhwIjoxNjQ1NjQyNjMwLCJpYXQiOjE2NDU1NTYyMzB9.CoS-K9Sq_crh7VWwfK0wjr3Fpb0ZPDFO2AnM_1g3xwl45Z6HYVp0rWZAxvJnPBZVZcC0EwMsKx66uNW78y0dzQ
+user-agent: PostmanRuntime/7.29.0
+accept: */*
+postman-token: 1aaf212d-e875-444f-8bad-7e45693e96d8
+host: 0.0.0.0:8081
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 0
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 08:33:30.748 ERROR 25496 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 08:33:30.752  INFO 25496 --- [http-nio-8081-exec-2] com.spring.controller.TestController     : Goi sau
+2022-02-23 08:33:32.803  INFO 25496 --- [threadPoolExecutor-1] com.spring.service.TestServiceImpl       : Goi truoc
+2022-02-23 08:33:39.982  INFO 25496 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 08:33:39.987  INFO 25496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 08:33:40.209  INFO 25496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

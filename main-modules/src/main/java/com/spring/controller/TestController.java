@@ -1,6 +1,6 @@
 package com.spring.controller;
 
-import com.spring.service.TestService;
+import com.spring.service.TestServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class TestController {
     Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
-    private TestService testService;
+    private TestServiceImpl testService;
 
     @PostMapping("/non-blocking")
     public DeferredResult<ResponseEntity<?>> sleepDefer(){
