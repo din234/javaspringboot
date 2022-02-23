@@ -1,11 +1,11 @@
 package com.spring.service.user;
 
 
-import com.spring.model.jpa.Authority;
+import com.spring.model.security.Authority;
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;
 import com.spring.repositories.elastic.UserRepoElastic;
-import com.spring.repositories.jpa.AuthorityRepoSql;
+import com.spring.repositories.jpa.AuthorityRepoSQL;
 import com.spring.repositories.jpa.UserRepoSQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,14 +28,14 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 
     private final UserRepoSQL userRepoSQL;
-    private final AuthorityRepoSql authorityRepoSql;
+    private final AuthorityRepoSQL authorityRepoSql;
     private final UserRepoElastic userRepoElastic;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserDetailServiceImpl(
             UserRepoElastic userRepoElastic,
-            AuthorityRepoSql authorityRepoSql,
+            AuthorityRepoSQL authorityRepoSql,
             UserRepoSQL userRepoSQL,
             PasswordEncoder passwordEncoder
     ){
@@ -45,21 +46,18 @@ public class UserDetailServiceImpl implements UserService,UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
-        if (usernameOrEmail == null)return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        if (username == null)return null;
         logger.debug("Loading new user and grant authority!");
-        UserSearch user = this.findUsername(usernameOrEmail);
+        User user = userRepoSQL.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Username or email not found!");
+            throw new UsernameNotFoundException("Username not found!");
         }
-        logger.debug(user.toString());
+        logger.info(user.toString());
 
 //        Collection<SimpleGrantedAuthority> authorities = Arrays.stream(Group.values()).map(group -> new SimpleGrantedAuthority(group.toString())).collect(Collectors.toList());
-//        Collection<SimpleGrantedAuthority> authorities = user.getGroups().stream().map(
-//                group -> new SimpleGrantedAuthority(group)).collect(Collectors.toList());
-//        Collection<SimpleGrantedAuthority> authorities =
-
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        Collection<SimpleGrantedAuthority> authorities = user.getAuthorities().stream().map(
+                authority -> new SimpleGrantedAuthority(authority.getTitle())).collect(Collectors.toList());
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(), user.getPassword(),authorities

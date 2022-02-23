@@ -2,8 +2,8 @@ package com.spring.controller.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.util.JwtTokenUtil;
-import com.spring.model.user.LoginRequest;
-import com.spring.model.user.RegistrationRequest;
+import com.spring.model.user.form.LoginRequest;
+import com.spring.model.user.form.RegistrationRequest;
 import com.spring.model.user.User;
 import com.spring.model.security.JwtResponse;
 import com.spring.service.MailService;

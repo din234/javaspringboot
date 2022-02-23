@@ -1,13 +1,12 @@
 package com.spring.service.localProvider;
 
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.spring.model.excel.AuthoritySheet;
-import com.spring.model.excel.RecordTemplate;
-import com.spring.model.jpa.Authority;
-import com.spring.repositories.jpa.AuthorityRepoSql;
+import com.spring.model.location.CountrySheet;
+import com.spring.model.location.RegionSheet;
+import com.spring.model.security.AuthoritySheet;
+import com.spring.model.base.RecordTemplate;
 import com.spring.util.ExcelUtil;
-import com.spring.model.excel.UserSheet;
-import org.apache.tomcat.jni.Local;
+import com.spring.model.user.UserSheet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,34 +36,38 @@ public class LocalProviderService {
     private final HttpHeaders header;
 
     private final ExcelUtil excelUtil;
-    private final AuthorityRepoSql authorityRepoSql;
     private final AuthoritySheet authoritySheet;
     private final UserSheet userSheet;
+    private final RegionSheet regionSheet;
+    private final CountrySheet countrySheet;
 
     @Autowired
     public LocalProviderService(
             ObjectWriter ow,
             RestTemplate restTemplate,
             HttpHeaders header,
-
             ExcelUtil excelUtil,
-            AuthorityRepoSql authorityRepoSql,
+
             AuthoritySheet authoritySheet,
-            UserSheet usersheet
+            UserSheet usersheet,
+            RegionSheet regionSheet,
+            CountrySheet countrySheet
     ){
         this.ow = ow;
         this.restTemplate = restTemplate;
         this.header = header;
 
         this.excelUtil = excelUtil;
-        this.authorityRepoSql = authorityRepoSql;
         this.authoritySheet = authoritySheet;
         this.userSheet = usersheet;
+        this.regionSheet = regionSheet;
+        this.countrySheet = countrySheet;
     }
 
     public void run() {
         set(authoritySheet, "authority", dirPath + "Authorities.xlsx");
         set(userSheet, "user", dirPath + "Users.xlsx");
+        set(countrySheet, "location", dirPath + "Countries.xlsx");
     }
 
     private void set(RecordTemplate recordTemplate, String endPoint, String filePath) {
@@ -80,6 +83,7 @@ public class LocalProviderService {
         }
     }
 
+    @Async
     private void post(Object obj,String url) {
         try {
             long start = System.currentTimeMillis();
@@ -94,7 +98,4 @@ public class LocalProviderService {
         }
     }
 
-    public ResponseEntity addAuthority(Authority authority){
-        return new ResponseEntity(authorityRepoSql.save(authority),HttpStatus.OK);
-    }
 }

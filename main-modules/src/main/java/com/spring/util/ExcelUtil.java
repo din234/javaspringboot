@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.*;
 
 import com.spring.config.CustomException.IncorrectFileExtensionException;
-import com.spring.model.excel.RecordTemplate;
+import com.spring.model.base.RecordTemplate;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;

@@ -1,6 +1,5 @@
 package com.spring.service.user;
 
-import com.spring.model.jpa.Authority;
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;
 

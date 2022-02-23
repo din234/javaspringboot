@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.MailException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -33,6 +34,16 @@ public class ExceptionHandlerController {
         });
         return errors;
     }
+
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(AuthenticationException.class)
+    public Map<String,Object> authenticationExceptionHandler(AuthenticationException ex){
+        Map<String,Object> errors = new HashMap<>();
+        errors.put("error_message: ", ex.getMessage());
+        return errors;
+    }
+
 
     @ExceptionHandler(MailException.class)
     public Map<String,Object> emailExceptionHandler(MailException ex){

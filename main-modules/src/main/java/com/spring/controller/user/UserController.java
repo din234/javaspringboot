@@ -1,8 +1,8 @@
 package com.spring.controller.user;
 
 import com.spring.model.user.UserSearch;
-import com.spring.repositories.elastic.UserRepoElastic;
 import com.spring.service.user.UserDetailServiceImpl;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UserController {
     // POST MAPPING
 
     @PostMapping(value = "/addAuthority")
-//    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseBody
     public ResponseEntity addAuthority(@RequestBody AuthorityForm auth){
         Boolean result = userDetailServiceImpl.addAuthority(auth.getUsername(),auth.getAuth());
@@ -37,9 +37,18 @@ public class UserController {
     }
 
     @PostMapping(value = "/deleteAuthority")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity deleteAuthority(@RequestBody AuthorityForm auth){
         Boolean result = userDetailServiceImpl.deleteAuthority(auth.getUsername(),auth.getAuth());
         return new ResponseEntity(result, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "findAll", method = RequestMethod.GET)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('STAFF')")
+    public ResponseEntity<?> findAll() {
+        List<UserSearch> users = userDetailServiceImpl.findAllUser();
+        return new ResponseEntity(users,HttpStatus.OK);
     }
 
     // GET MAPPING
@@ -50,12 +59,6 @@ public class UserController {
         return new ResponseEntity(users,HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAuthority('STAFF')")
-    @RequestMapping(value = "findAll", method = RequestMethod.GET)
-    public ResponseEntity<?> findAll() {
-        List<UserSearch> users = userDetailServiceImpl.findAllUser();
-        return new ResponseEntity(users,HttpStatus.OK);
-    }
 }
 
 

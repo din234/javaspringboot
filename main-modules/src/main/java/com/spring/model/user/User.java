@@ -1,7 +1,8 @@
 package com.spring.model.user;
 
 import com.spring.config.Constant;
-import com.spring.model.jpa.Authority;
+import com.spring.model.security.Authority;
+import com.spring.model.user.form.RegistrationRequest;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -15,6 +16,9 @@ public class User extends RegistrationRequest {
 
     @Column
     private Boolean activated = false;
+
+    @Column(name = "description")
+    private String description;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -64,7 +68,7 @@ public class User extends RegistrationRequest {
                 ", fullName='" + fullName + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", date_modified=" + date_modified +
-                ", authorities=" + authorities +
+                ", authorities=" + authorities.toString() +
                 '}';
     }
 }

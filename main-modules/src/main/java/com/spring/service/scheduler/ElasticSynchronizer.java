@@ -2,9 +2,13 @@ package com.spring.service.scheduler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.model.base.ModelSpecifications;
+import com.spring.model.location.Country;
+import com.spring.model.location.LocationSearch;
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;
+import com.spring.repositories.elastic.LocationRepoElastic;
 import com.spring.repositories.elastic.UserRepoElastic;
+import com.spring.repositories.jpa.CountryRepoSQL;
 import com.spring.repositories.jpa.UserRepoSQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,22 +31,36 @@ public class ElasticSynchronizer {
 
     private final UserRepoSQL userRepoSQL;
     private final UserRepoElastic userRepoElastic;
+
+    private final CountryRepoSQL countryRepoSQL;
+    private final LocationRepoElastic locationRepoElastic;
+
     private final ObjectMapper objectMapper;
 
     @Autowired
     public ElasticSynchronizer(
             UserRepoSQL userRepoSQL,
             UserRepoElastic userRepoElastic,
+            CountryRepoSQL countryRepoSQL,
+            LocationRepoElastic locationRepoElastic,
             ObjectMapper objectMapper
     ){
         this.userRepoSQL = userRepoSQL;
         this.userRepoElastic = userRepoElastic;
+
+        this.countryRepoSQL = countryRepoSQL;
+        this.locationRepoElastic = locationRepoElastic;
+
         this.objectMapper = objectMapper;
     }
 
     //    https://stackoverflow.com/questions/3324717/sending-http-post-request-in-java
-    private UserSearch convertToES(User user){
+    private UserSearch convertUserToES(User user){
         return objectMapper.convertValue(user,UserSearch.class);
+    }
+
+    private LocationSearch convertLocationToES(Country country){
+        return objectMapper.convertValue(country, LocationSearch.class);
     }
 
     // update sau mot khoang thoi gian (theo form crontab)
@@ -57,15 +75,8 @@ public class ElasticSynchronizer {
     }
 
     private void add(){
-        List<User> users;
-        users = userRepoSQL.findAll(ModelSpecifications.getSyncFlag());
-        for (User user : users) {
-            try {
-                userRepoElastic.save(this.convertToES(user));
-                user.setSync_flag(true);
-                userRepoSQL.save(user);
-            } catch (Exception e){e.printStackTrace();}
-        }
+        addUser();
+        addLocation();
     }
 
     private void delete(){
@@ -73,7 +84,33 @@ public class ElasticSynchronizer {
         users = userRepoSQL.findAll(ModelSpecifications.getDeleteFlag());
         for (User user : users) {
             userRepoSQL.delete(user);
-            userRepoElastic.delete(this.convertToES(user));
+            userRepoElastic.delete(this.convertUserToES(user));
+        }
+    }
+
+    @Async
+    private void addUser(){
+        List<User> users;
+        users = userRepoSQL.findAll(ModelSpecifications.getSyncFlag());
+        for (User user : users) {
+            try {
+                userRepoElastic.save(this.convertUserToES(user));
+                user.setSync_flag(true);
+                userRepoSQL.save(user);
+            } catch (Exception e){e.printStackTrace();}
+        }
+    }
+
+    @Async
+    private void addLocation(){
+        List<Country> countries;
+        countries = countryRepoSQL.findAll(ModelSpecifications.getSyncFlag());
+        for (Country country : countries) {
+            try {
+                locationRepoElastic.save(this.convertLocationToES(country));
+                country.setSync_flag(true);
+                countryRepoSQL.save(country);
+            } catch (Exception e){e.printStackTrace();}
         }
     }
 

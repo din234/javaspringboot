@@ -1,16 +1,12 @@
 package com.spring.model.user;
 
-import com.spring.model.jpa.Authority;
-import com.spring.model.user.LoginForm;
+import com.spring.model.user.form.LoginForm;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 @Document(indexName = "users")
 public class UserSearch implements LoginForm {

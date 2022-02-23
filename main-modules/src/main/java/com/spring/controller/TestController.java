@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -18,7 +17,7 @@ import java.util.Map;
 public class TestController {
     Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @PostMapping("/defer")
+    @PostMapping("/non-blocking")
     public DeferredResult<ResponseEntity<?>> sleepDefer(){
         DeferredResult<ResponseEntity<?>> output = new DeferredResult<>();
         Map<String,Object> response = new HashMap<>();
@@ -34,11 +33,12 @@ public class TestController {
     }
 
 
-    @PostMapping("/response")
-    public ResponseEntity response(@RequestBody Visitor visitor){
-        logger.info("OK");
+    @PostMapping("/blocking")
+    public ResponseEntity blocking(){
         try {Thread.sleep(1000);} catch (Exception e) {};
-        return new ResponseEntity(visitor,HttpStatus.OK);
+        Map<String,Object> response = new HashMap<>();
+        response.put("mgs","Done Sleeping");
+        return new ResponseEntity(response,HttpStatus.OK);
     }
 }
 

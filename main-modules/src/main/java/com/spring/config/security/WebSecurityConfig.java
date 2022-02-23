@@ -1,5 +1,6 @@
 package com.spring.config.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.service.user.UserDetailServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,15 +18,22 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 //import org.springframework.security.access.expression.method.MethodSecurityExpressionRoot;
 
 // https://stackoverflow.com/questions/48628389/how-to-configure-httpsecurity-for-this-situation-spring-boot
 
 @Configuration
-//@EnableWebSecurity(debug = true)
-@EnableWebSecurity()
+@EnableWebSecurity(debug = true)
+//@EnableWebSecurity()
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) // Kích hoạt @PreAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
@@ -60,16 +69,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/user/auth/register","/user/auth/login").permitAll()
-                .antMatchers("/test/**").permitAll()
+                .antMatchers("/login","/test/**","/index/**","/webjars/**","/js/**").permitAll()
                 .antMatchers("/swagger/**","/swagger/api-docs","/swagger/swagger-ui.html/**").permitAll()
 
                 .antMatchers("/server/import").access("hasIpAddress('127.0.0.1')")
                 .antMatchers("/server/add/**").access("hasIpAddress('127.0.0.1')")
-//                .anyRequest().authenticated()
-                .anyRequest().permitAll()
+
+                .anyRequest().authenticated()
+//                .anyRequest().permitAll()
                 .and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //
+        http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
         http.addFilterBefore(jwtRequestAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 //            http.addFilter(new JwtRequestAuthenticationFilter(authenticationManagerBean()));
 
@@ -90,5 +101,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler(){
+        return (request, response, accessDeniedException) -> {
+            Map<String,Object> res = new HashMap<>();
+            res.put("error: ","Forbidden");
+
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+
+            ServletOutputStream out = response.getOutputStream();
+            new ObjectMapper().writeValue(out,res);
+            out.flush();
+        };
     }
 }

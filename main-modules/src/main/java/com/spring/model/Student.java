@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "students")
+@Table(name = "student")
 public class Student extends ModelImpl {
     @Id
     @Column(name = "user_id")
@@ -16,9 +16,6 @@ public class Student extends ModelImpl {
     @Column(name = "enrollment_date")
     private Date enrollmentDate;
 
-    @Column(name = "des")
-    private String des;
-
     @Column(name = "gpa")
     private Double gpa;
 
@@ -26,5 +23,4 @@ public class Student extends ModelImpl {
     @MapsId
     @JoinColumn(name = "user_id")
     private User user;
-
 }
