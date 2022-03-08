@@ -37168,3 +37168,1415 @@ Security filter chain: [
 2022-02-23 08:33:39.982  INFO 25496 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-23 08:33:39.987  INFO 25496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-02-23 08:33:40.209  INFO 25496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 09:09:14.006  INFO 11804 --- [main] com.spring.SpringBootIndex               : Starting SpringBootIndex using Java 17.0.1 on SnapLap with PID 11804 (D:\trainingdev_dinh\src\java\main-modules\target\classes started by Dim in D:\trainingdev_dinh\src\java)
+2022-02-23 09:09:14.011  INFO 11804 --- [main] com.spring.SpringBootIndex               : No active profile set, falling back to default profiles: default
+2022-02-23 09:09:15.437  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:09:15.440  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-02-23 09:09:15.509  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 3 Elasticsearch repository interfaces.
+2022-02-23 09:09:15.519  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:09:15.520  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 09:09:15.564  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 5 JPA repository interfaces.
+2022-02-23 09:09:15.999  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:09:16.000  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-02-23 09:09:16.035  INFO 11804 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.AuthorityRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:09:16.038  INFO 11804 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CountryRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:09:16.038  INFO 11804 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CourseRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:09:16.039  INFO 11804 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.RegionRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:09:16.042  INFO 11804 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.UserRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:09:16.043  INFO 11804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-02-23 09:09:17.399  INFO 11804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-23 09:09:17.417  INFO 11804 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 09:09:17.422  INFO 11804 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 09:09:17.717  INFO 11804 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 09:09:17.717  INFO 11804 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3566 ms
+2022-02-23 09:09:19.044  WARN 11804 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:09:19.840  INFO 11804 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 09:09:19.920  INFO 11804 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 09:09:20.162  INFO 11804 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 09:09:20.327  INFO 11804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 09:09:20.818  INFO 11804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 09:09:20.855  INFO 11804 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-23 09:09:22.719  INFO 11804 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 09:09:22.760  INFO 11804 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 09:09:23.536  WARN 11804 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 09:09:24.073  WARN 11804 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/location?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:09:24.656  WARN 11804 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:09:24.845  INFO 11804 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2afa1b1a, org.springframework.security.web.context.SecurityContextPersistenceFilter@2cc7b63d, org.springframework.security.web.header.HeaderWriterFilter@530aa75c, org.springframework.security.web.authentication.logout.LogoutFilter@51d50b5f, com.spring.config.security.JwtRequestAuthenticationFilter@47f677a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54626326, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c725dfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30fffb53, org.springframework.security.web.session.SessionManagementFilter@440e2406, org.springframework.security.web.access.ExceptionTranslationFilter@7b8d1537, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6812708d]
+2022-02-23 09:09:24.850  WARN 11804 --- [main] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2022-02-23 09:09:28.082  INFO 11804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-23 09:09:28.107  INFO 11804 --- [main] com.spring.SpringBootIndex               : Started SpringBootIndex in 14.981 seconds (JVM running for 16.33)
+2022-02-23 09:10:00.450  INFO 11804 --- [scheduling-1] c.s.s.scheduler.ElasticSynchronizer      : Triggered
+2022-02-23 09:11:00.115  INFO 11804 --- [scheduling-1] c.s.s.scheduler.ElasticSynchronizer      : Triggered
+2022-02-23 09:11:06.318  INFO 11804 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-23 09:11:06.318  INFO 11804 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-23 09:11:06.327  INFO 11804 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-02-23 09:11:06.359  INFO 11804 --- [http-nio-8081-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/login':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+sec-fetch-site: none
+sec-fetch-mode: navigate
+sec-fetch-user: ?1
+sec-fetch-dest: document
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:06.389  WARN 11804 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:11:06.446 ERROR 11804 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:07.369  INFO 11804 --- [http-nio-8081-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/webjars/jquery/3.6.0/jquery.min.js':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/webjars/jquery/3.6.0/jquery.min.js
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:07.387  WARN 11804 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:11:07.388 ERROR 11804 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:07.426  INFO 11804 --- [http-nio-8081-exec-3] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/js/login.js':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/js/login.js
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:07.426  WARN 11804 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:11:07.427 ERROR 11804 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:07.764  INFO 11804 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/favicon.ico':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/favicon.ico
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:07.767  WARN 11804 --- [http-nio-8081-exec-4] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:11:07.767 ERROR 11804 --- [http-nio-8081-exec-4] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:07.768 ERROR 11804 --- [http-nio-8081-exec-4] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:11:07.775  INFO 11804 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@19582820
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:09.867  INFO 11804 --- [http-nio-8081-exec-5] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdG9vbmlhY2l0aGx5MTIzIiwiZXhwIjoxNjQ1NjQ0MjkxLCJpYXQiOjE2NDU1NTc4OTF9.IVKgOVEV7Q-ooH_4egXeCEn2U1xJ7kDtTk6he2hfpMLnnfVD0tJh1PGmJ-gJRUEG5EIL6W6gtMzWkSrURN8czw
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:10.183  INFO 11804 --- [http-nio-8081-exec-5] c.s.service.user.UserDetailServiceImpl   : User{id=7, username='Stooniacithly123', password='$2a$10$jhLhhGexjZ5k6AtIhCfFIeToVKfkcyvbn5uU/ufENnb8cBZwWy5uW', email='z-hmanf6@developermail.com', fullName='Surendra Togata', dateCreated=2022-02-23 08:45:30.401, date_modified=2022-02-23 08:46:00.759, authorities=[ STAFF ]}
+2022-02-23 09:11:10.222  INFO 11804 --- [http-nio-8081-exec-5] c.s.c.s.JwtRequestAuthenticationFilter   : Logged in as: Stooniacithly123
+2022-02-23 09:11:10.330  WARN 11804 --- [http-nio-8081-exec-5] org.elasticsearch.client.RestClient      : request [POST http://192.168.1.5:9200/users/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=query_then_fetch&batched_reduce_size=512] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:11:16.231  INFO 11804 --- [http-nio-8081-exec-6] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdG9vbmlhY2l0aGx5MTIzIiwiZXhwIjoxNjQ1NjQ0MjkxLCJpYXQiOjE2NDU1NTc4OTF9.IVKgOVEV7Q-ooH_4egXeCEn2U1xJ7kDtTk6he2hfpMLnnfVD0tJh1PGmJ-gJRUEG5EIL6W6gtMzWkSrURN8czw
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:16.253  INFO 11804 --- [http-nio-8081-exec-6] c.s.service.user.UserDetailServiceImpl   : User{id=7, username='Stooniacithly123', password='$2a$10$jhLhhGexjZ5k6AtIhCfFIeToVKfkcyvbn5uU/ufENnb8cBZwWy5uW', email='z-hmanf6@developermail.com', fullName='Surendra Togata', dateCreated=2022-02-23 08:45:30.401, date_modified=2022-02-23 08:46:00.759, authorities=[ STAFF ]}
+2022-02-23 09:11:16.259  INFO 11804 --- [http-nio-8081-exec-6] c.s.c.s.JwtRequestAuthenticationFilter   : Logged in as: Stooniacithly123
+2022-02-23 09:11:16.284  WARN 11804 --- [http-nio-8081-exec-6] org.elasticsearch.client.RestClient      : request [POST http://192.168.1.5:9200/users/_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=query_then_fetch&batched_reduce_size=512] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:11:57.187  INFO 11804 --- [http-nio-8081-exec-7] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/user/auth/login':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/auth/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+content-length: 32
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: application/json, text/javascript, */*; q=0.01
+content-type: application/json
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+origin: http://localhost:8081
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:57.189  WARN 11804 --- [http-nio-8081-exec-7] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:11:57.190 ERROR 11804 --- [http-nio-8081-exec-7] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:57.195  INFO 11804 --- [http-nio-8081-exec-8] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:11:57.196 ERROR 11804 --- [http-nio-8081-exec-8] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:11:57.197 ERROR 11804 --- [http-nio-8081-exec-8] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:11:57.198  INFO 11804 --- [http-nio-8081-exec-8] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@2c4be178
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:00.088  INFO 11804 --- [scheduling-1] c.s.s.scheduler.ElasticSynchronizer      : Triggered
+2022-02-23 09:12:03.638  INFO 11804 --- [http-nio-8081-exec-9] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/user/auth/login':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/auth/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+content-length: 32
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: application/json, text/javascript, */*; q=0.01
+content-type: application/json
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+origin: http://localhost:8081
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:03.638  WARN 11804 --- [http-nio-8081-exec-9] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:12:03.638 ERROR 11804 --- [http-nio-8081-exec-9] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:03.648  INFO 11804 --- [http-nio-8081-exec-10] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:03.649 ERROR 11804 --- [http-nio-8081-exec-10] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:03.649 ERROR 11804 --- [http-nio-8081-exec-10] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:12:03.649  INFO 11804 --- [http-nio-8081-exec-10] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@3f1dbc53
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:08.083  INFO 11804 --- [http-nio-8081-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/user/auth/login':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/auth/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+content-length: 31
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: application/json, text/javascript, */*; q=0.01
+content-type: application/json
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+origin: http://localhost:8081
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:08.086  WARN 11804 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:12:08.087 ERROR 11804 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:08.087  INFO 11804 --- [http-nio-8081-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:08.087 ERROR 11804 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:08.088 ERROR 11804 --- [http-nio-8081-exec-2] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:12:08.088  INFO 11804 --- [http-nio-8081-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@334d7efc
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:09.399  INFO 11804 --- [http-nio-8081-exec-3] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/user/auth/login':
+
+org.apache.catalina.connector.RequestFacade@5425682f
+
+servletPath:/user/auth/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+content-length: 31
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: application/json, text/javascript, */*; q=0.01
+content-type: application/json
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+origin: http://localhost:8081
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:09.399  WARN 11804 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:12:09.400 ERROR 11804 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:09.400  INFO 11804 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@3bc6847e
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:12:09.401 ERROR 11804 --- [http-nio-8081-exec-4] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:12:09.401 ERROR 11804 --- [http-nio-8081-exec-4] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:12:09.401  INFO 11804 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@1aeca10c
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:13:00.083  INFO 11804 --- [scheduling-1] c.s.s.scheduler.ElasticSynchronizer      : Triggered
+2022-02-23 09:13:42.413  INFO 11804 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 09:13:42.417  INFO 11804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 09:13:42.468  INFO 11804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 09:13:51.565  INFO 18376 --- [main] com.spring.SpringBootIndex               : Starting SpringBootIndex using Java 17.0.1 on SnapLap with PID 18376 (D:\trainingdev_dinh\src\java\main-modules\target\classes started by Dim in D:\trainingdev_dinh\src\java)
+2022-02-23 09:13:51.570  INFO 18376 --- [main] com.spring.SpringBootIndex               : No active profile set, falling back to default profiles: default
+2022-02-23 09:13:53.124  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:13:53.125  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-02-23 09:13:53.193  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 3 Elasticsearch repository interfaces.
+2022-02-23 09:13:53.203  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:13:53.204  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 09:13:53.265  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 5 JPA repository interfaces.
+2022-02-23 09:13:54.055  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-23 09:13:54.062  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-02-23 09:13:54.160  INFO 18376 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.AuthorityRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:13:54.160  INFO 18376 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CountryRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:13:54.160  INFO 18376 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.CourseRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:13:54.167  INFO 18376 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.RegionRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:13:54.177  INFO 18376 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.spring.repositories.jpa.UserRepoSQL. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+2022-02-23 09:13:54.178  INFO 18376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-02-23 09:13:56.257  INFO 18376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-23 09:13:56.299  INFO 18376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 09:13:56.300  INFO 18376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 09:13:56.644  INFO 18376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 09:13:56.644  INFO 18376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4948 ms
+2022-02-23 09:13:58.048  WARN 18376 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:13:58.401  INFO 18376 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 09:13:58.478  INFO 18376 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 09:13:58.727  INFO 18376 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 09:13:58.890  INFO 18376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 09:13:59.336  INFO 18376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 09:13:59.369  INFO 18376 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-23 09:14:01.127  INFO 18376 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 09:14:01.148  INFO 18376 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 09:14:02.129  WARN 18376 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 09:14:02.953  WARN 18376 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/location?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:14:03.004  WARN 18376 --- [main] org.elasticsearch.client.RestClient      : request [HEAD http://192.168.1.5:9200/users?ignore_throttled=false&ignore_unavailable=false&expand_wildcards=open%2Cclosed&allow_no_indices=false] returned 1 warnings: [299 Elasticsearch-7.17.0-bee86328705acaa9a6daede7140defd4d9ec56bd "[ignore_throttled] parameter is deprecated because frozen indices have been deprecated. Consider cold or frozen tiers in place of frozen indices."]
+2022-02-23 09:14:03.348  INFO 18376 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29897daf, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d5b2c1e, org.springframework.security.web.header.HeaderWriterFilter@1de83be1, org.springframework.security.web.authentication.logout.LogoutFilter@510d4d4b, com.spring.config.security.JwtRequestAuthenticationFilter@6ff87203, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12faeada, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48dfce5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63e54c66, org.springframework.security.web.session.SessionManagementFilter@20a434a8, org.springframework.security.web.access.ExceptionTranslationFilter@71d0ad00, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c1f3125]
+2022-02-23 09:14:03.357  WARN 18376 --- [main] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2022-02-23 09:14:07.052  INFO 18376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-23 09:14:07.070  INFO 18376 --- [main] com.spring.SpringBootIndex               : Started SpringBootIndex in 16.366 seconds (JVM running for 17.767)
+2022-02-23 09:14:09.818  INFO 18376 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-23 09:14:09.819  INFO 18376 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-23 09:14:09.822  INFO 18376 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-02-23 09:14:09.834  INFO 18376 --- [http-nio-8081-exec-1] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/login':
+
+org.apache.catalina.connector.RequestFacade@5000832a
+
+servletPath:/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+cache-control: max-age=0
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+sec-fetch-site: none
+sec-fetch-mode: navigate
+sec-fetch-user: ?1
+sec-fetch-dest: document
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:09.843  WARN 18376 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:14:09.861 ERROR 18376 --- [http-nio-8081-exec-1] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:10.408  INFO 18376 --- [http-nio-8081-exec-3] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/js/login.js':
+
+org.apache.catalina.connector.RequestFacade@5000832a
+
+servletPath:/js/login.js
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:10.408  WARN 18376 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:14:10.408 ERROR 18376 --- [http-nio-8081-exec-3] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:10.424  INFO 18376 --- [http-nio-8081-exec-2] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/webjars/jquery/3.6.0/jquery.min.js':
+
+org.apache.catalina.connector.RequestFacade@e6a94dc
+
+servletPath:/webjars/jquery/3.6.0/jquery.min.js
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:10.424  WARN 18376 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:14:10.424 ERROR 18376 --- [http-nio-8081-exec-2] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:10.732  INFO 18376 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/favicon.ico':
+
+org.apache.catalina.connector.RequestFacade@e6a94dc
+
+servletPath:/favicon.ico
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:10.732  WARN 18376 --- [http-nio-8081-exec-4] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:14:10.733 ERROR 18376 --- [http-nio-8081-exec-4] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:10.737 ERROR 18376 --- [http-nio-8081-exec-4] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:14:10.742  INFO 18376 --- [http-nio-8081-exec-4] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@25445a11
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:14.712  INFO 18376 --- [http-nio-8081-exec-6] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/user/findAll':
+
+org.apache.catalina.connector.RequestFacade@5000832a
+
+servletPath:/user/findAll
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:14.712  INFO 18376 --- [http-nio-8081-exec-5] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/user/auth/login':
+
+org.apache.catalina.connector.RequestFacade@e6a94dc
+
+servletPath:/user/auth/login
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+content-length: 35
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: application/json, text/javascript, */*; q=0.01
+content-type: application/json
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+origin: http://localhost:8081
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:14.713  WARN 18376 --- [http-nio-8081-exec-5] c.s.c.s.JwtRequestAuthenticationFilter   : JWT khong bat dau tu "Bearer "
+2022-02-23 09:14:14.713 ERROR 18376 --- [http-nio-8081-exec-6] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:14.714 ERROR 18376 --- [http-nio-8081-exec-5] c.s.c.s.JwtRequestAuthenticationFilter   : Could not get all claims from token
+2022-02-23 09:14:14.714 ERROR 18376 --- [http-nio-8081-exec-6] c.s.c.s.AuthenticationEntryPointImpl     : UNAUTHORIZED
+2022-02-23 09:14:14.715  INFO 18376 --- [http-nio-8081-exec-6] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@e6d8bf3
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8081
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+accept: */*
+x-requested-with: XMLHttpRequest
+sec-ch-ua-mobile: ?0
+authorization: Bearer null
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: http://localhost:8081/login
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=A3CF9672E47D5CEC987E9FA5941B5F1B; Idea-53cc747a=84288579-e46e-4c5e-8bf4-999e09ebeefa
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtRequestAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-23 09:14:21.015  INFO 18376 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 09:14:21.017  INFO 18376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 09:14:21.111  INFO 18376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
