@@ -1,4 +1,4 @@
-package com.spring.config;
+package com.main.config;
 
 public class Paypal {
 }

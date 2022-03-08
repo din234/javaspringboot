@@ -1,4 +1,4 @@
-package com.spring.model.location;
+package com.main.model.location;
 
 import javax.persistence.*;
 import java.util.ArrayList;

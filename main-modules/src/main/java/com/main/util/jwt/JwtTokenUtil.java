@@ -1,4 +1,4 @@
-package com.spring.util.jwt;
+package com.main.util.jwt;
 
 import java.util.Date;
 

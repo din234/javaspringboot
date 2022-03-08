@@ -1,4 +1,4 @@
-package com.spring.config.CustomException;
+package com.main.config.CustomException;
 
 import java.io.IOException;
 

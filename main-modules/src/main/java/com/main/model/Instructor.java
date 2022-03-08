@@ -1,4 +1,4 @@
-package com.spring.model;
+package com.main.model;
 
 import org.springframework.data.elasticsearch.annotations.Field;
 

@@ -1,21 +1,18 @@
-package com.spring.model.security;
+package com.user.model;
 
-import com.spring.model.base.ModelImpl;
+//import com.spring.model.base.ModelImpl;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
 @Entity @Table(name = "authority") @DynamicUpdate
-public class Authority extends ModelImpl {
+public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "title", unique = true)
     private String title;
-
-    @Column(name = "number")
-    private Integer number;
 
     public Long getId() {
         return id;
@@ -31,14 +28,6 @@ public class Authority extends ModelImpl {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
     }
 
     @Override

@@ -1,6 +1,6 @@
-package com.spring.model.location;
+package com.main.model.location;
 
-import com.spring.model.base.ModelImpl;
+import com.main.model.base.ModelImpl;
 
 import javax.persistence.*;
 

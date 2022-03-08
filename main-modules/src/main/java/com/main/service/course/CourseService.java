@@ -1,4 +1,4 @@
-package com.spring.service.course;
+package com.main.service.course;
 
 import org.springframework.scheduling.annotation.Async;
 

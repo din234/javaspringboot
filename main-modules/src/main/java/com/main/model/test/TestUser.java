@@ -1,4 +1,4 @@
-package com.spring.model.test;
+package com.main.model.test;
 
 //import com.spring.util.Role;
 import org.springframework.data.annotation.Id;

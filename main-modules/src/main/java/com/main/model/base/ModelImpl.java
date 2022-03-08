@@ -1,6 +1,6 @@
-package com.spring.model.base;
+package com.main.model.base;
 
-import com.spring.config.Constant;
+import com.main.config.Constant;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;

@@ -1,7 +1,7 @@
-package com.spring.config.security;
+package com.main.config.security;
 
-import com.spring.service.user.UserDetailServiceImpl;
-import com.spring.util.jwt.JwtTokenUtil;
+import com.main.service.user.UserDetailServiceImpl;
+import com.main.util.jwt.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

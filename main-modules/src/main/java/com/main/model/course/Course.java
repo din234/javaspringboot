@@ -1,6 +1,6 @@
-package com.spring.model.course;
+package com.main.model.course;
 
-import com.spring.model.base.ModelImpl;
+import com.main.model.base.ModelImpl;
 
 import javax.persistence.*;
 

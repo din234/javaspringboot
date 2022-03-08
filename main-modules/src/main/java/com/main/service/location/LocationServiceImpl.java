@@ -1,8 +1,8 @@
-package com.spring.service.location;
+package com.main.service.location;
 
-import com.spring.model.location.Country;
-import com.spring.model.location.LocationSearch;
-import com.spring.repositories.elastic.LocationRepoElastic;
+import com.main.model.location.Country;
+import com.main.model.location.LocationSearch;
+import com.main.repositories.elastic.LocationRepoElastic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

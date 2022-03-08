@@ -1,4 +1,4 @@
-package com.spring.model.location;
+package com.main.model.location;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;

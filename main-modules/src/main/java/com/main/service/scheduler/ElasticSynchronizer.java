@@ -1,15 +1,15 @@
-package com.spring.service.scheduler;
+package com.main.service.scheduler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.model.base.ModelSpecifications;
-import com.spring.model.location.Country;
-import com.spring.model.location.LocationSearch;
+import com.main.model.base.ModelSpecifications;
+import com.main.model.location.Country;
+import com.main.repositories.elastic.UserRepoElastic;
+import com.main.repositories.jpa.UserRepoSQL;
+import com.main.model.location.LocationSearch;
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;
-import com.spring.repositories.elastic.LocationRepoElastic;
-import com.spring.repositories.elastic.UserRepoElastic;
-import com.spring.repositories.jpa.CountryRepoSQL;
-import com.spring.repositories.jpa.UserRepoSQL;
+import com.main.repositories.elastic.LocationRepoElastic;
+import com.main.repositories.jpa.CountryRepoSQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

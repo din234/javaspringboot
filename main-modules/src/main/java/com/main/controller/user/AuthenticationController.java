@@ -1,12 +1,12 @@
-package com.spring.controller.user;
+package com.main.controller.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.util.jwt.JwtTokenUtil;
+import com.main.util.jwt.JwtTokenUtil;
 import com.spring.model.user.form.LoginRequest;
 import com.spring.model.user.form.RegistrationRequest;
 import com.spring.model.user.User;
-import com.spring.model.security.JwtResponse;
-import com.spring.service.user.UserDetailServiceImpl;
+import com.main.model.security.JwtResponse;
+import com.main.service.user.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

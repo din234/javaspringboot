@@ -1,6 +1,6 @@
-package com.spring.model.location;
+package com.main.model.location;
 
-import com.spring.model.base.RecordTemplateImpl;
+import com.main.model.base.RecordTemplateImpl;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

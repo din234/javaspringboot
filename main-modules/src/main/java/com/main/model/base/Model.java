@@ -1,4 +1,4 @@
-package com.spring.model.base;
+package com.main.model.base;
 
 public interface Model {
     Boolean getSync_flag();

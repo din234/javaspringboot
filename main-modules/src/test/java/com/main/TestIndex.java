@@ -1,4 +1,4 @@
-package com.spring;
+package com.main;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,10 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

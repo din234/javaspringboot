@@ -1,4 +1,4 @@
-package com.spring.model.security;
+package com.main.model.security;
 
 public enum Group {
     ADMIN("ADMIN"),  // DELETE

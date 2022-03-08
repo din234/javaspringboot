@@ -1,4 +1,4 @@
-package com.spring.config;//package com.spring.config;
+package com.main.config;//package com.spring.config;
 //
 //import org.springdoc.core.GroupedOpenApi;
 //import org.springframework.context.annotation.Bean;

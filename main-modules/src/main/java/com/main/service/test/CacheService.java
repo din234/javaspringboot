@@ -1,4 +1,4 @@
-package com.spring.service.test;//package com.spring.service.test;
+package com.main.service.test;//package com.spring.service.test;
 //
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;

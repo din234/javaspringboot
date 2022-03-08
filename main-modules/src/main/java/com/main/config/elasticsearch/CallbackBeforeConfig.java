@@ -1,4 +1,4 @@
-package com.spring.config.elasticsearch;//package com.spring.config;
+package com.main.config.elasticsearch;//package com.spring.config;
 //
 //import com.spring.model.jpa.user.User;
 //import org.springframework.beans.factory.annotation.Autowired;

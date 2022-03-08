@@ -1,8 +1,8 @@
-package com.spring.controller.local;
+package com.main.controller.local;
 
 //import com.spring.model.main.User;
-import com.spring.service.localProvider.LocalProviderService;
-import com.spring.service.user.UserDetailServiceImpl;
+import com.main.service.localProvider.LocalProviderService;
+import com.main.service.user.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

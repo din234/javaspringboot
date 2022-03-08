@@ -1,4 +1,4 @@
-package com.spring.model.test.constant;
+package com.main.model.test.constant;
 
 public interface EndPoint {
     String INDEX = "users";

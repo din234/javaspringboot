@@ -1,4 +1,4 @@
-package com.spring.service.test;
+package com.main.service.test;
 
 public interface TestService {
 }

@@ -1,4 +1,4 @@
-package com.spring.config.local;
+package com.main.config.local;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

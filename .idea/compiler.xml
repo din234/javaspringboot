@@ -6,9 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="local-provider" />
+        <module name="shared" />
         <module name="main-modules" />
+        <module name="mail" />
+        <module name="upwork" />
+        <module name="authservice" />
+        <module name="eureka" />
         <module name="test-modules" />
+        <module name="user" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="service-discovery" target="17" />
+      <module name="spring-microservices" target="17" />
+      <module name="test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

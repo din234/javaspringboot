@@ -1,7 +1,7 @@
-package com.spring.controller.user;
+package com.main.controller.user;
 
 import com.spring.model.user.UserSearch;
-import com.spring.service.user.UserDetailServiceImpl;
+import com.main.service.user.UserDetailServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

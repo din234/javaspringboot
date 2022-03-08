@@ -1,12 +1,12 @@
-package com.spring.controller.local;
+package com.main.controller.local;
 
-import com.spring.model.course.Course;
-import com.spring.model.location.Country;
-import com.spring.model.location.Region;
+import com.main.model.course.Course;
+import com.main.model.location.Country;
+import com.main.model.location.Region;
 import com.spring.model.security.Authority;
 import com.spring.model.user.User;
-import com.spring.service.localProvider.LocalProviderPostService;
-import com.spring.service.user.UserDetailServiceImpl;
+import com.main.service.localProvider.LocalProviderPostService;
+import com.main.service.user.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

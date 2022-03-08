@@ -1,4 +1,4 @@
-package com.spring.config.elasticsearch;
+package com.main.config.elasticsearch;
 
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;

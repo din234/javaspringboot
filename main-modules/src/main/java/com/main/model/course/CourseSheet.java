@@ -1,6 +1,6 @@
-package com.spring.model.course;
+package com.main.model.course;
 
-import com.spring.model.base.RecordTemplateImpl;
+import com.main.model.base.RecordTemplateImpl;
 
 import java.util.List;
 import java.util.function.BiConsumer;

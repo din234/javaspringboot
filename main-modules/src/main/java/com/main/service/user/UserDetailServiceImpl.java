@@ -1,12 +1,12 @@
-package com.spring.service.user;
+package com.main.service.user;
 
 
+import com.main.repositories.elastic.UserRepoElastic;
+import com.main.repositories.jpa.AuthorityRepoSQL;
+import com.main.repositories.jpa.UserRepoSQL;
 import com.spring.model.security.Authority;
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;
-import com.spring.repositories.elastic.UserRepoElastic;
-import com.spring.repositories.jpa.AuthorityRepoSQL;
-import com.spring.repositories.jpa.UserRepoSQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

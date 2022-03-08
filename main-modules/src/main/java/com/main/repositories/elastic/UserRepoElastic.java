@@ -1,4 +1,4 @@
-package com.spring.repositories.elastic;
+package com.main.repositories.elastic;
 
 import com.spring.model.user.UserSearch;
 import org.apache.lucene.search.Sort;

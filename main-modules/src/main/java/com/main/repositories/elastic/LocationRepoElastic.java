@@ -1,6 +1,6 @@
-package com.spring.repositories.elastic;
+package com.main.repositories.elastic;
 
-import com.spring.model.location.LocationSearch;
+import com.main.model.location.LocationSearch;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

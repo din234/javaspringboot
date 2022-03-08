@@ -1,4 +1,4 @@
-package com.spring.config.test;
+package com.main.config.test;
 
 public class CustomFilterChain {
 }

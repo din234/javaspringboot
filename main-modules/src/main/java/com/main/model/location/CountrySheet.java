@@ -1,6 +1,6 @@
-package com.spring.model.location;
-import com.spring.model.base.RecordTemplateImpl;
-import com.spring.repositories.jpa.RegionRepoSQL;
+package com.main.model.location;
+import com.main.model.base.RecordTemplateImpl;
+import com.main.repositories.jpa.RegionRepoSQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
-package com.spring.service.location;
+package com.main.service.location;
 
-import com.spring.model.location.Country;
-import com.spring.model.location.LocationSearch;
+import com.main.model.location.Country;
+import com.main.model.location.LocationSearch;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

@@ -1,9 +1,7 @@
-package com.spring.controller.local;
+package com.main.controller.local;
 
-import com.spring.config.Constant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

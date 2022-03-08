@@ -1,4 +1,4 @@
-package com.spring.model.security;
+package com.main.model.security;
 
 /**
  * Trả token cho người dùng account

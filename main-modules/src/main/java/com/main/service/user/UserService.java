@@ -1,4 +1,4 @@
-package com.spring.service.user;
+package com.main.service.user;
 
 import com.spring.model.user.User;
 import com.spring.model.user.UserSearch;

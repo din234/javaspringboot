@@ -1,4 +1,4 @@
-package com.spring.config.CustomException;
+package com.main.config.CustomException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

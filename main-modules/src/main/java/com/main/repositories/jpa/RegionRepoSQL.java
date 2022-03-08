@@ -1,6 +1,6 @@
-package com.spring.repositories.jpa;
+package com.main.repositories.jpa;
 
-import com.spring.model.location.Region;
+import com.main.model.location.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

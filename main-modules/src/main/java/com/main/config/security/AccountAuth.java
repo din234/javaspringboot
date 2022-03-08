@@ -1,4 +1,4 @@
-package com.spring.config.security;//package com.spring.config.jwt;
+package com.main.config.security;//package com.spring.config.jwt;
 //
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.main.controller;
 
 public class AddressController {
 }

@@ -1,13 +1,13 @@
-package com.spring.service.localProvider;
+package com.main.service.localProvider;
 
-import com.spring.model.course.Course;
-import com.spring.model.location.Country;
-import com.spring.model.location.Region;
+import com.main.model.course.Course;
+import com.main.model.location.Country;
+import com.main.model.location.Region;
+import com.main.repositories.jpa.AuthorityRepoSQL;
+import com.main.repositories.jpa.CourseRepoSQL;
 import com.spring.model.security.Authority;
-import com.spring.repositories.jpa.AuthorityRepoSQL;
-import com.spring.repositories.jpa.CountryRepoSQL;
-import com.spring.repositories.jpa.CourseRepoSQL;
-import com.spring.repositories.jpa.RegionRepoSQL;
+import com.main.repositories.jpa.CountryRepoSQL;
+import com.main.repositories.jpa.RegionRepoSQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
